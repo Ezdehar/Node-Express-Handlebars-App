@@ -19,6 +19,7 @@ var burgers = {
     });
   }
 };
-
+$(function() {
+$(".delquote").on("click", function(event) {
 // Export the database functions for the controller (catsController.js).
 module.exports = burgers;
