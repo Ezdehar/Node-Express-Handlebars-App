@@ -1,21 +1,20 @@
 var express = require("express");
 // Import the model (.js) to use its database functions.
-var burgers = require("/Users/ezdeharjaber/Documents/cwru/burger/db/models/burger.js");
-
 var router = express.Router();
+var burger = require("/Users/ezdeharjaber/Documents/cwru/burger/db/models/burger.js");
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burgers.selectAll(function(data) {
+  burger.selectAll(function(data) {
     var hbsObject = {
       burgers: data
     };
     console.log(hbsObject);
-    res.render("/api/burger", hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
-router.post("/api/burger", function(req, res) {
-  burgers.insertOne([
+router.post("/api/burgers", function(req, res) {
+  burger.insertOne([
     "name", "devoured"
   ], [
     req.body.name, req.body.devoured
@@ -25,7 +24,7 @@ router.post("/api/burger", function(req, res) {
   });
 });
 
-router.put("/api/burger/:id", function(req, res) {
+router.put("/api/burgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);

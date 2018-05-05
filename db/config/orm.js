@@ -1,5 +1,5 @@
 // Import MySQL connection.
-var connection = require("../config/connection.js");
+var connection = require("/Users/ezdeharjaber/Documents/cwru/burger/db/config/connection.js");
 
   // Object for all our SQL statement functions.
   var orm = {
