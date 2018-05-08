@@ -1,6 +1,6 @@
 var express = require("express");
-// Import the model (.js) to use its database functions.
-var burgers = require("../models/burger.js");
+
+var burger = require("/Users/ezdeharjaber/Documents/cwru/burger/db/models/burger.js");
 
 var router = express.Router();
 // Create all our routes and set up logic within those routes where required.
@@ -44,6 +44,4 @@ router.put("/api/burgers/:id", function(req, res) {
 
 // Export routes for server.js to use.
 module.exports = router;
-
-
 
