@@ -6,10 +6,7 @@
 var mysql = require("mysql");
 
 // Set up our connection information
-var source = {
-// if (process.env.JAWSDB_URL) {
-//   connection = mysql.createConnection(process.env.JAWSDB_URL);
-// } else {
+  var connection = mysql.createConnection({
   localhost: {
     port: 3306,
     host: "localhost",
@@ -25,10 +22,8 @@ var source = {
     password: "<password>",
     database: "<name of database>"
   }
-};
+});
 // we use source.[name of connection] to hook into mysql
-var connection = mysql.createConnection(source.localhost);
-
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -39,6 +34,7 @@ connection.connect(function(err) {
 
 // Export connection
 module.exports = connection;
+
 
 
 
