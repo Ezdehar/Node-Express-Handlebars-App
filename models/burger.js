@@ -1,5 +1,5 @@
 // Import the ORM to create functions that will interact with the database.
-var orm = require("/Users/ezdeharjaber/Documents/cwru/burger/db/config/orm.js");
+var orm = require("/Users/ezdeharjaber/Documents/cwru/burger/config/orm.js");
 
 var burger = {
     selectAll: function(cb) {
@@ -13,12 +13,12 @@ var burger = {
             cb(res);
     });
   },
-  updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burger", objColVals, condition, function(res) {
-      cb(res);
-    });
-  }
-};
+    updateOne: function(objColVals, condition, cb) {
+      orm.updateOne("burger", objColVals, condition, function(res) {
+        cb(res);
+      });
+    }
+  };
 
 // Export the database functions for the controller (catsController.js).
 module.exports = burger;

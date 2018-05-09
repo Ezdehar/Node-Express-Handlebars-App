@@ -1,11 +1,14 @@
+
+//Express Routes
 var express = require("express");
 
-var burger = require("/Users/ezdeharjaber/Documents/cwru/burger/db/models/burger.js");
-
 var router = express.Router();
+
+var burger = require("/Users/ezdeharjaber/Documents/cwru/burger/models/burger.js");
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burgers.selectAll(function(data) {
+  burger.selectAll(function(data) {
     var hbsObject = {
       burgers: data
     };
@@ -15,7 +18,7 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burgers.insertOne([
+  burger.insertOne([
     "name", "devoured"
   ], [
     req.body.name, req.body.devoured
@@ -30,7 +33,7 @@ router.put("/api/burgers/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  cat.update({
+  burger.update({
     devoured: req.body.devoured
   }, condition, function(result) {
     if (result.changedRows == 0) {
