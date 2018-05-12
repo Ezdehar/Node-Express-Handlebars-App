@@ -6,15 +6,14 @@
 var mysql = require("mysql");
 
 // we use source.[name of connection] to hook into mysql
-//var connection = mysql.createConnection(source.localhost);
+//var connection = 
 
 // Set up our connection information
-var connection = mysql.createConnection({
-    port: 3306,
-    host: "localhost",
-    user: "root",
-    password: "Cardinal1",
-    database: "burgers_db"
+let connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "Cardinal1",
+  database: "burger_db"
 
   // jawsDB: ({
   //   port: 3306,
@@ -28,8 +27,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
+    return console.error("error connecting: " + err.stack);
   }
   console.log("connected as id " + connection.threadId);
 });

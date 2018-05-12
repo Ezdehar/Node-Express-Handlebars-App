@@ -4,11 +4,11 @@ var express = require("express");
 
 var router = express.Router();
 
-var burger = require("/Users/ezdeharjaber/Documents/cwru/burger/models/burger.js");
+var burgers = require("/Users/ezdeharjaber/Documents/cwru/burger/models/burger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
-  burger.selectAll(function(data) {
+  burgers.selectAll(function(data) {
     var hbsObject = {
       burger: data
     };

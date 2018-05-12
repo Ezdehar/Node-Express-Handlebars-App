@@ -1,28 +1,22 @@
-<h1>{{Eat-Da-Burger}}</h1>
+<h1>Eat-Da-Burger</h1>
 
 <ul>
   {{#each burger}}
-  <li>{{<button type="submit">Submit</button>}}</li>
-    <p>
-      {{this.id}}. {{this.burger}}
-      <textarea typeid="{{this.id}}" name="burger" placeholder="burger"></textarea>
-      <button type="submit">Devour it!</button>
-    </p>
-  <li><
+    <li>
+       <p>ID: {{this.id}}</p>
+       <p>Burger: {{this.burger}}</p>
+       <p>Devoured: {{devoured}}</p>
+    </li>
   {{/each}}
 </ul>
 
-var context = {
-  items: [
-    {name: "Cheese Burger", emotion: "Devour it!"},
-    {name: "Veggie Burger", emotion: "Devour it"},
-    {name: "Whopper", emotion: "Devour it"}
-  ]
-};
+<div>
+  <form action="/" method="GET">
+    <textarea type="text" name="burger"></textarea>
+    
+    <button type="submit">Submit</button>
+  </form>
+</div>
 
-Handlebars.registerHelper('submit_button', function() {
-  var emotion = Handlebars.escapeExpression(this.emotion),
-      name = Handlebars.escapeExpression(this.name);
-});
 
 
