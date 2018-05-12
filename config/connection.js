@@ -9,7 +9,7 @@ var mysql = require("mysql");
 //var connection = 
 
 // Set up our connection information
-let connection = mysql.createConnection({
+var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "Cardinal1",

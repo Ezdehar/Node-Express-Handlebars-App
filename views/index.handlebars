@@ -1,12 +1,15 @@
 <h1>Eat-Da-Burger</h1>
 
+<!-- Pass in data from server.js -->
+
 <ul>
   {{#each burgers}}
     <li>
        <p>
+                <span class="label">ID:</span> {{this.id}}
           Burger: {{this.id}}. {{this.burger}}
 
-          <button data-burgerid="{{this.id}}" class="subburger">Submit</button>
+           <button data-id="{{this.id}}" class="delburger">Delete</button>
         </p> 
     </li>
   {{/each}}
@@ -14,72 +17,13 @@
 
 <div>
   <form action="/" method="GET">
-    <textarea type="text" name="burger"></textarea>
-
-    <button type="submit">Submit</button>
-  </form>
+  
+    <textarea type="text" name="burger"></textarea> 
 </div>
+    <button type="submit">Submit</button>
+</form>
 
-<script type="text/javascript">
-  $(".subburger").on("click", function(event) {
-    var id = $(this).data("burgerid");
 
-    // Send the DELETE request.
-    $.ajax("/burgers/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $("#addburger").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var newBurger = {
-      movie: $("#addburger [name=movie]").val().trim()
-    };
-
-    // Send the POST request.
-    $.ajax("/burgers", {
-      type: "POST",
-      data: newBurger
-    }).then(
-      function() {
-        console.log("added new movie");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-
-  $("#updateburger").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-
-    var id = $("[name=id]").val().trim();
-
-    var updatedBurger = {
-      movie: $("#updateburger [name=burger]").val().trim()
-    };
-
-    // Send the PUT request.
-    $.ajax("/burgers/" + id, {
-      type: "PUT",
-      data: updatedBurgers
-    }).then(
-      function() {
-        console.log("updated id ", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
-  });
-</script>
 
 
  
